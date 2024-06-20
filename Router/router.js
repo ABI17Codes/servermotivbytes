@@ -31,7 +31,7 @@ router.get("/comments/stories/:id",comment)
 router.get("/refetch", refetch);
 
 router.get('/profile/:id', fetchProfile)
-router.get('profile/:id/posts',fetchuserpost)
+router.get('/profile/:id/posts',fetchuserpost)
 
 
 export default router
