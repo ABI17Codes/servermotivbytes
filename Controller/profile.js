@@ -31,11 +31,27 @@ const fetchuserpost = async (req, res) => {
   try {
     const videos = await Video.find({ userId : req.params.id });   
     res.status(200).json(videos);
-    console.log(videos);
+    // console.log(videos);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error fetching user posts" });
   }
 };
 
-export { fetchProfile, fetchuserpost };
+// video count profile 
+
+const videoCount =  async (req, res) => {
+  try {
+    const userId = req.params.id;
+    console.log(userId);
+    const count = await Video.countDocuments({ userId });
+    res.status(200).json({count});
+    console.log(count);
+  } catch (error) {
+    console.error("Error fetching video count:", error);
+    res.status(500).json({ message: "Error fetching video count" });
+  }
+}
+
+
+export { fetchProfile, fetchuserpost,videoCount };

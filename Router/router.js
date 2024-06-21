@@ -1,10 +1,9 @@
 import express from "express"
 import {login, logout, refetch, register} from "../Controller/auth.js"
-import {  deletevideo, editvideo, getvideo, getvideobyId, uploadvideo } from "../Controller/post.js"
+import {  deletevideo, editvideo, getvideo, getvideobyId, homeVideo, uploadvideo } from "../Controller/post.js"
 import { createcomment, comment } from "../Controller/postcomment.js"
 // import verifyToken from "../verifytoken.js"
-// import User from "../model/User.js"
-import { fetchProfile, fetchuserpost } from "../Controller/profile.js"
+import { fetchProfile, fetchuserpost, videoCount } from "../Controller/profile.js"
 
 
 const router = express.Router()
@@ -16,6 +15,7 @@ router.get("/logout", logout)
 
 // video (data) route
 router.post("/yourstory",uploadvideo)
+router.get("/",homeVideo)
 router.get("/stories",getvideo)
 router.get("/stories/:id",getvideobyId)
 router.put("/:id",editvideo)
@@ -32,6 +32,7 @@ router.get("/refetch", refetch);
 
 router.get('/profile/:id', fetchProfile)
 router.get('/profile/:id/posts',fetchuserpost)
+router.get('/profile/:id/videoCount', videoCount)
 
 
 export default router

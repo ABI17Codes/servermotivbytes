@@ -2,16 +2,12 @@
 import Comment from '../model/comment.js'
 
 
-
 // create a new comment
 const createcomment = async (req, res) => {
     try {
-
+const { comment, username, postId, userId } = req.body
       const newcomment = new Comment({
-        comment: req.body.comment,
-        username: req.body.username,
-        postId: req.body.postId,
-        userId: req.body.userId,
+        comment, username, postId, userId
       });
       const savedcomment = await newcomment.save();
       res.sendStatus(200).json(savedcomment);

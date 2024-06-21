@@ -28,10 +28,30 @@ const uploadvideo = async (req, res) => {
 };
 
 
+
+// home page videos
+const homeVideo = async (req,res) =>{
+  try {
+      const data = await Video.find().limit(6)
+      if (!data) {
+        throw new Error("An error occurred while fetching a video.");
+      }
+      res.status(200).json(data)
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An error occurred while fetching videos' });
+  }
+}
+
+
 // all videos
 const getvideo = async (req,res) =>{
     try {
-        const data = await Video.find()
+        // const data = await Video.find()
+        const count = await Video.countDocuments(); 
+        const randomIndex = Math.floor(Math.random() * count); 
+        const data = await Video.find().skip(randomIndex).limit(10); 
+    
         if (!data) {
           throw new Error("An error occurred while fetching a video.");
         }
@@ -45,7 +65,7 @@ const getvideo = async (req,res) =>{
 // video getting by Id
 const getvideobyId = async (req,res) =>{
   try {
-      const data = await Video.findOne({_id : req.params.id})
+      const data = await Video.findOne({ _id : req.params.id})
       res.status(200).json(data)
       // console.log(data);
   } catch (error) {
@@ -85,4 +105,4 @@ const deletevideo = async (req,res) =>{
 
 
 
-export { uploadvideo, getvideo,getvideobyId, editvideo, deletevideo };
+export { uploadvideo, homeVideo, getvideo,getvideobyId, editvideo, deletevideo };

@@ -28,7 +28,7 @@ const register = async (req, res) => {
       password: hashpassword,
     });
     await user.save();
-    console.log(user);
+    // console.log(user);
     res.status(201).json(user);
   } catch (error) {
     res.status(500).json({ message: "Server error" });
