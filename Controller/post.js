@@ -2,10 +2,6 @@ import Video from "../model/postvideo.js";
 
 
 
-// create a new video
-const uploadvideo = async (req, res) => {
-  try {
-
     // 1
     // const newPost=new Post(req.body)
     //     const savedpost = await newPost.save()
@@ -13,6 +9,9 @@ const uploadvideo = async (req, res) => {
 
     // 2
     // const {title,videolink,description} = req.body
+// create a new video
+const uploadvideo = async (req, res) => {
+  try {
     const newVideo = new Video({
       userId: req.body.userId,
       username: req.body.username,

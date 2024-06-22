@@ -46,7 +46,7 @@ const videoCount =  async (req, res) => {
     console.log(userId);
     const count = await Video.countDocuments({ userId });
     res.status(200).json({count});
-    console.log(count);
+    // console.log(count);
   } catch (error) {
     console.error("Error fetching video count:", error);
     res.status(500).json({ message: "Error fetching video count" });
