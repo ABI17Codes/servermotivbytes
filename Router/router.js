@@ -2,7 +2,6 @@ import express from "express"
 import {login, logout, refetch, register} from "../Controller/auth.js"
 import {  deletevideo, editvideo, getvideo, getvideobyId, homeVideo, uploadvideo } from "../Controller/post.js"
 import { createcomment, comment } from "../Controller/postcomment.js"
-// import verifyToken from "../verifytoken.js"
 import { fetchProfile, fetchuserpost, videoCount } from "../Controller/profile.js"
 
 
