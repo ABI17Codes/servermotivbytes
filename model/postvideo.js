@@ -19,7 +19,6 @@ const VideoSchema = new mongoose.Schema(
     videolink: {
       type: String,
       required: true,
-      // unique: true,
       match: /^(https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/www\.youtube\.com\/embed\/|https:\/\/youtu\.be\/).+/, // Regular expression to validate YouTube watch, embed, and shortened URLs
  
     },
