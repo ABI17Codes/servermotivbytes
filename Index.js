@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser"
 
 
 const app = express()
-app.use(cors({origin:"https://servermotivbytes.vercel.app",credentials:true}))
+app.use(cors({origin:"https://motivibytes.netlify.app",credentials:true}))
 app.use(express.json())
 app.use(cookieParser())
 
