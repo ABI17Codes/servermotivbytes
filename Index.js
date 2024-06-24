@@ -7,7 +7,16 @@ import cookieParser from "cookie-parser"
 
 
 const app = express()
-app.use(cors({origin:"https://motivibytes.netlify.app",credentials:true}))
+// app.use(cors({origin:"https://motivibytes.netlify.app",credentials:true}))
+const corsOptions = {
+  origin: "https://motivibytes.netlify.app",
+  credentials: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization"
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json())
 app.use(cookieParser())
 
