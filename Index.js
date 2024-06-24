@@ -22,7 +22,9 @@ app.use(cookieParser())
 
 app.use('/', router)
 
-
+app.get('/', (req, res) => {
+  res.send('Register endpoint');
+});
 
 
 
